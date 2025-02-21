@@ -1,0 +1,14 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: llama-service
+spec:
+  selector:
+    app: llama
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8501
+    nodePort: 30001  # Specify nodePort for Minikube
+  type: NodePort  # Use NodePort to expose service locally in Minikube
